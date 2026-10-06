@@ -1,0 +1,608 @@
+{
+ "amqp": [
+  {
+   "temperature": 16.1,
+   "humidity": 63.8,
+   "illuminance": 223.1
+  },
+  {
+   "temperature": 17.3,
+   "humidity": 55.3,
+   "illuminance": 888.2
+  },
+  {
+   "temperature": 27.0,
+   "humidity": 64.1,
+   "illuminance": 134.8
+  },
+  {
+   "temperature": 24.5,
+   "humidity": 38.2,
+   "illuminance": 536.8
+  },
+  {
+   "temperature": 31.5,
+   "humidity": 37.1,
+   "illuminance": 282.0
+  },
+  {
+   "temperature": 25.0,
+   "humidity": 56.7,
+   "illuminance": 217.8
+  },
+  {
+   "temperature": 30.2,
+   "humidity": 51.8,
+   "illuminance": 252.9
+  },
+  {
+   "temperature": 24.9,
+   "humidity": 41.9,
+   "illuminance": 656.7
+  },
+  {
+   "temperature": 17.3,
+   "humidity": 40.8,
+   "illuminance": 132.2
+  },
+  {
+   "temperature": 22.8,
+   "humidity": 45.1,
+   "illuminance": 550.2
+  },
+  {
+   "temperature": 23.3,
+   "humidity": 57.4,
+   "illuminance": 173.6
+  },
+  {
+   "temperature": 25.9,
+   "humidity": 67.5,
+   "illuminance": 280.6
+  },
+  {
+   "temperature": 25.6,
+   "humidity": 36.1,
+   "illuminance": 104.7
+  },
+  {
+   "temperature": 31.7,
+   "humidity": 42.5,
+   "illuminance": 207.1
+  },
+  {
+   "temperature": 18.7,
+   "humidity": 38.7,
+   "illuminance": 481.8
+  },
+  {
+   "temperature": 29.0,
+   "humidity": 63.2,
+   "illuminance": 817.1
+  },
+  {
+   "temperature": 22.3,
+   "humidity": 45.6,
+   "illuminance": 160.9
+  },
+  {
+   "temperature": 16.3,
+   "humidity": 51.7,
+   "illuminance": 639.6
+  },
+  {
+   "temperature": 19.4,
+   "humidity": 35.6,
+   "illuminance": 212.3
+  },
+  {
+   "temperature": 29.5,
+   "humidity": 42.9,
+   "illuminance": 500.9
+  },
+  {
+   "temperature": 24.8,
+   "humidity": 65.2,
+   "illuminance": 843.3
+  },
+  {
+   "temperature": 29.6,
+   "humidity": 54.5,
+   "illuminance": 679.8
+  },
+  {
+   "temperature": 24.2,
+   "humidity": 67.7,
+   "illuminance": 576.2
+  },
+  {
+   "temperature": 20.8,
+   "humidity": 63.9,
+   "illuminance": 762.0
+  },
+  {
+   "temperature": 17.5,
+   "humidity": 45.1,
+   "illuminance": 776.0
+  },
+  {
+   "temperature": 25.5,
+   "humidity": 50.4,
+   "illuminance": 575.8
+  },
+  {
+   "temperature": 31.1,
+   "humidity": 60.0,
+   "illuminance": 437.6
+  },
+  {
+   "temperature": 23.7,
+   "humidity": 68.0,
+   "illuminance": 844.9
+  },
+  {
+   "temperature": 28.2,
+   "humidity": 66.8,
+   "illuminance": 171.9
+  },
+  {
+   "temperature": 27.2,
+   "humidity": 56.8,
+   "illuminance": 567.2
+  }
+ ],
+ "mqtt": [
+  {
+   "temperature": 30.3,
+   "humidity": 63.1,
+   "illuminance": 542.4
+  },
+  {
+   "temperature": 25.3,
+   "humidity": 65.4,
+   "illuminance": 645.3
+  },
+  {
+   "temperature": 26.1,
+   "humidity": 60.0,
+   "illuminance": 434.4
+  },
+  {
+   "temperature": 19.1,
+   "humidity": 57.3,
+   "illuminance": 263.1
+  },
+  {
+   "temperature": 19.3,
+   "humidity": 54.8,
+   "illuminance": 654.6
+  },
+  {
+   "temperature": 23.5,
+   "humidity": 61.2,
+   "illuminance": 760.8
+  },
+  {
+   "temperature": 27.3,
+   "humidity": 49.5,
+   "illuminance": 566.5
+  },
+  {
+   "temperature": 30.7,
+   "humidity": 68.1,
+   "illuminance": 755.8
+  },
+  {
+   "temperature": 29.3,
+   "humidity": 68.8,
+   "illuminance": 609.6
+  },
+  {
+   "temperature": 16.7,
+   "humidity": 52.3,
+   "illuminance": 468.8
+  },
+  {
+   "temperature": 26.3,
+   "humidity": 42.6,
+   "illuminance": 166.4
+  },
+  {
+   "temperature": 25.2,
+   "humidity": 67.9,
+   "illuminance": 398.1
+  },
+  {
+   "temperature": 30.2,
+   "humidity": 67.4,
+   "illuminance": 825.1
+  },
+  {
+   "temperature": 16.3,
+   "humidity": 35.4,
+   "illuminance": 702.0
+  },
+  {
+   "temperature": 27.0,
+   "humidity": 44.7,
+   "illuminance": 130.3
+  },
+  {
+   "temperature": 19.5,
+   "humidity": 43.5,
+   "illuminance": 525.3
+  },
+  {
+   "temperature": 24.2,
+   "humidity": 65.0,
+   "illuminance": 554.6
+  },
+  {
+   "temperature": 18.9,
+   "humidity": 56.5,
+   "illuminance": 789.5
+  },
+  {
+   "temperature": 23.5,
+   "humidity": 62.5,
+   "illuminance": 411.5
+  },
+  {
+   "temperature": 31.1,
+   "humidity": 38.6,
+   "illuminance": 724.0
+  },
+  {
+   "temperature": 29.5,
+   "humidity": 66.2,
+   "illuminance": 231.5
+  },
+  {
+   "temperature": 20.8,
+   "humidity": 35.8,
+   "illuminance": 895.2
+  },
+  {
+   "temperature": 19.5,
+   "humidity": 63.2,
+   "illuminance": 375.6
+  },
+  {
+   "temperature": 17.2,
+   "humidity": 57.4,
+   "illuminance": 802.0
+  },
+  {
+   "temperature": 19.0,
+   "humidity": 63.6,
+   "illuminance": 393.0
+  },
+  {
+   "temperature": 29.0,
+   "humidity": 53.2,
+   "illuminance": 157.4
+  },
+  {
+   "temperature": 25.5,
+   "humidity": 40.2,
+   "illuminance": 569.5
+  },
+  {
+   "temperature": 26.3,
+   "humidity": 67.6,
+   "illuminance": 183.2
+  },
+  {
+   "temperature": 20.9,
+   "humidity": 68.4,
+   "illuminance": 555.1
+  },
+  {
+   "temperature": 18.7,
+   "humidity": 37.8,
+   "illuminance": 262.8
+  }
+ ],
+ "https": [
+  {
+   "temperature": 22.5,
+   "humidity": 47.8,
+   "illuminance": 434.3
+  },
+  {
+   "temperature": 18.8,
+   "humidity": 65.9,
+   "illuminance": 572.1
+  },
+  {
+   "temperature": 27.3,
+   "humidity": 43.6,
+   "illuminance": 479.2
+  },
+  {
+   "temperature": 29.3,
+   "humidity": 36.8,
+   "illuminance": 715.7
+  },
+  {
+   "temperature": 18.9,
+   "humidity": 64.0,
+   "illuminance": 739.8
+  },
+  {
+   "temperature": 21.2,
+   "humidity": 48.9,
+   "illuminance": 239.9
+  },
+  {
+   "temperature": 26.6,
+   "humidity": 60.2,
+   "illuminance": 238.1
+  },
+  {
+   "temperature": 29.3,
+   "humidity": 37.2,
+   "illuminance": 565.2
+  },
+  {
+   "temperature": 29.8,
+   "humidity": 38.9,
+   "illuminance": 826.6
+  },
+  {
+   "temperature": 20.8,
+   "humidity": 43.9,
+   "illuminance": 856.4
+  },
+  {
+   "temperature": 28.1,
+   "humidity": 40.4,
+   "illuminance": 144.5
+  },
+  {
+   "temperature": 28.3,
+   "humidity": 57.8,
+   "illuminance": 145.2
+  },
+  {
+   "temperature": 19.9,
+   "humidity": 61.2,
+   "illuminance": 836.0
+  },
+  {
+   "temperature": 30.2,
+   "humidity": 64.4,
+   "illuminance": 690.2
+  },
+  {
+   "temperature": 21.7,
+   "humidity": 52.6,
+   "illuminance": 539.7
+  },
+  {
+   "temperature": 31.2,
+   "humidity": 68.0,
+   "illuminance": 676.1
+  },
+  {
+   "temperature": 22.8,
+   "humidity": 69.7,
+   "illuminance": 383.5
+  },
+  {
+   "temperature": 17.0,
+   "humidity": 64.1,
+   "illuminance": 736.3
+  },
+  {
+   "temperature": 30.3,
+   "humidity": 65.6,
+   "illuminance": 791.0
+  },
+  {
+   "temperature": 19.4,
+   "humidity": 60.3,
+   "illuminance": 112.9
+  },
+  {
+   "temperature": 22.7,
+   "humidity": 43.8,
+   "illuminance": 435.8
+  },
+  {
+   "temperature": 29.9,
+   "humidity": 49.1,
+   "illuminance": 311.0
+  },
+  {
+   "temperature": 24.5,
+   "humidity": 55.8,
+   "illuminance": 622.3
+  },
+  {
+   "temperature": 17.6,
+   "humidity": 51.5,
+   "illuminance": 576.5
+  },
+  {
+   "temperature": 19.7,
+   "humidity": 44.8,
+   "illuminance": 131.6
+  },
+  {
+   "temperature": 27.7,
+   "humidity": 62.5,
+   "illuminance": 571.4
+  },
+  {
+   "temperature": 16.5,
+   "humidity": 64.0,
+   "illuminance": 305.2
+  },
+  {
+   "temperature": 30.1,
+   "humidity": 63.5,
+   "illuminance": 619.3
+  },
+  {
+   "temperature": 16.2,
+   "humidity": 56.6,
+   "illuminance": 233.4
+  },
+  {
+   "temperature": 18.1,
+   "humidity": 60.4,
+   "illuminance": 267.8
+  },
+  {
+   "temperature": 19.6,
+   "humidity": 69.2,
+   "illuminance": 599.2
+  },
+  {
+   "temperature": 22.3,
+   "humidity": 40.6,
+   "illuminance": 501.1
+  },
+  {
+   "temperature": 30.2,
+   "humidity": 63.3,
+   "illuminance": 168.6
+  },
+  {
+   "temperature": 23.7,
+   "humidity": 59.0,
+   "illuminance": 837.0
+  },
+  {
+   "temperature": 22.1,
+   "humidity": 55.4,
+   "illuminance": 443.2
+  },
+  {
+   "temperature": 17.4,
+   "humidity": 40.2,
+   "illuminance": 122.9
+  },
+  {
+   "temperature": 25.2,
+   "humidity": 46.8,
+   "illuminance": 548.7
+  },
+  {
+   "temperature": 22.1,
+   "humidity": 46.2,
+   "illuminance": 855.8
+  },
+  {
+   "temperature": 30.3,
+   "humidity": 45.4,
+   "illuminance": 851.5
+  },
+  {
+   "temperature": 26.7,
+   "humidity": 46.2,
+   "illuminance": 347.8
+  },
+  {
+   "temperature": 20.9,
+   "humidity": 54.6,
+   "illuminance": 881.8
+  },
+  {
+   "temperature": 22.6,
+   "humidity": 61.1,
+   "illuminance": 331.9
+  },
+  {
+   "temperature": 20.8,
+   "humidity": 37.9,
+   "illuminance": 241.5
+  },
+  {
+   "temperature": 31.4,
+   "humidity": 37.4,
+   "illuminance": 123.8
+  },
+  {
+   "temperature": 27.4,
+   "humidity": 56.0,
+   "illuminance": 559.2
+  },
+  {
+   "temperature": 23.1,
+   "humidity": 49.4,
+   "illuminance": 454.9
+  },
+  {
+   "temperature": 31.4,
+   "humidity": 42.0,
+   "illuminance": 375.3
+  },
+  {
+   "temperature": 18.1,
+   "humidity": 49.0,
+   "illuminance": 232.1
+  },
+  {
+   "temperature": 17.6,
+   "humidity": 49.7,
+   "illuminance": 648.9
+  },
+  {
+   "temperature": 19.0,
+   "humidity": 56.2,
+   "illuminance": 222.1
+  },
+  {
+   "temperature": 31.0,
+   "humidity": 38.5,
+   "illuminance": 813.0
+  },
+  {
+   "temperature": 31.4,
+   "humidity": 60.8,
+   "illuminance": 327.1
+  },
+  {
+   "temperature": 17.7,
+   "humidity": 50.9,
+   "illuminance": 678.7
+  },
+  {
+   "temperature": 20.6,
+   "humidity": 68.4,
+   "illuminance": 306.3
+  },
+  {
+   "temperature": 21.5,
+   "humidity": 68.8,
+   "illuminance": 873.7
+  },
+  {
+   "temperature": 25.5,
+   "humidity": 61.9,
+   "illuminance": 548.1
+  },
+  {
+   "temperature": 25.4,
+   "humidity": 60.3,
+   "illuminance": 349.4
+  },
+  {
+   "temperature": 27.1,
+   "humidity": 45.1,
+   "illuminance": 207.0
+  },
+  {
+   "temperature": 17.2,
+   "humidity": 53.6,
+   "illuminance": 376.3
+  },
+  {
+   "temperature": 17.5,
+   "humidity": 45.9,
+   "illuminance": 355.5
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "up_bytes": 26375,
+  "down_bytes": 12130,
+  "up_frames": 99,
+  "down_frames": 88,
+  "up_payload": 19833,
+  "down_payload": 6314,
+  "connections": 1,
+  "total_bytes": 38505,
+  "total_frames": 187,
+  "duration_s": 37.14,
+  "hub_ips": [
+    "20.44.8.231"
+  ]
+}

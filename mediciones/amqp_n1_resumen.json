@@ -1,0 +1,11 @@
+{
+  "protocol": "AMQP",
+  "device": "lab4-amqp",
+  "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net",
+  "port": 5671,
+  "dps_s": 2.889,
+  "connect_s": 0.867,
+  "link_s": 0.105,
+  "sent": 1,
+  "accepted": 1
+}

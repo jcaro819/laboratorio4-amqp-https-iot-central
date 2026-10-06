@@ -1,0 +1,9 @@
+{
+  "protocol": "HTTPS-session",
+  "device": "lab4-https",
+  "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net",
+  "port": 443,
+  "dps_s": 2.839,
+  "sent": 30,
+  "accepted": 30
+}

@@ -1,0 +1,34 @@
+{
+  "AMQP": {
+    "clave_incorrecta": {
+      "resultado": "ConnectionException: Connection amqps://iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net:5671 disconnected: Condition('amqp:connection:framing-error', 'SSL Failure: error:0A000126:SSL routines::unexpected eof while reading')",
+      "ms": 682
+    },
+    "token_vencido": {
+      "resultado": "ConnectionException: Connection amqps://iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net:5671 disconnected: Condition('amqp:connection:framing-error', 'SSL Failure: error:0A000126:SSL routines::unexpected eof while reading')",
+      "ms": 572
+    }
+  },
+  "MQTT": {
+    "clave_incorrecta": {
+      "resultado": "CONNACK Not authorized",
+      "ms": 429
+    },
+    "token_vencido": {
+      "resultado": "CONNACK Not authorized",
+      "ms": 447
+    }
+  },
+  "HTTPS": {
+    "clave_incorrecta": {
+      "resultado": "HTTP 401",
+      "cuerpo": "{\"Message\":\"{\\\"errorCode\\\":401002,\\\"message\\\":\\\"The specified SAS token has an invalid signature. It does not match either the primary or secondary key.\\\",\\\"trackingId\\\":\\\"3DFD094A06DC480289B7E33807863944-G2:-TimeStamp:2026-10-06T13:08:46.418898041Z\\\",\\\"timestampUtc\\\":\\\"2026-10-06T13:08:46.418898041",
+      "ms": 432
+    },
+    "token_vencido": {
+      "resultado": "HTTP 401",
+      "cuerpo": "{\"Message\":\"{\\\"errorCode\\\":401002,\\\"message\\\":\\\"Unauthorized access\\\",\\\"trackingId\\\":\\\"322FE5D4B1B04EB99E0CDE5A9091BCDA-G2:-TimeStamp:2026-10-06T13:08:46.850916809Z\\\",\\\"timestampUtc\\\":\\\"2026-10-06T13:08:46.850916809Z\\\",\\\"info\\\":null}\",\"ExceptionMessage\":\"\"}",
+      "ms": 427
+    }
+  }
+}

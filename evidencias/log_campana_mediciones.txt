@@ -1,0 +1,184 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 358B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#4 resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f 0.0s done
+#4 DONE 0.0s
+
+#5 [2/3] RUN apt-get update && apt-get install -y --no-install-recommends tcpdump ca-certificates         gcc libc6-dev cmake make swig libssl-dev pkg-config     && pip install --no-cache-dir requests python-dotenv paho-mqtt python-qpid-proton     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/3] WORKDIR /app/scripts
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:8e3a0954b51889d85fd6823555f9a9bfab812418b0d3223630651a43d6359f0e done
+#7 exporting config sha256:0b5ebff44b7859d0fb4dc8bfd5e07ece63c68e0c2abefae385a53202b3dc6660 done
+#7 exporting attestation manifest sha256:2f067084c08a91dcd9895354fb10b43fe0dfea5810630269d729a5ff3e93ee1a 0.0s done
+#7 exporting manifest list sha256:d899b30b570919c687be55f957126f98c4d25194fa8b35c59619030fd4a3cf74 0.0s done
+#7 naming to docker.io/library/lab4-iot:latest done
+#7 unpacking to docker.io/library/lab4-iot:latest 0.0s done
+#7 DONE 0.1s
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2889 ms)
+[AMQP] conectado a iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net:5671  conexion+SASL=867 ms  enlace=105 ms
+[AMQP] #1 {'temperature': 25.3, 'humidity': 38.8, 'illuminance': 745.0} ack=198.9 ms status=accepted
+[RESUMEN] {"protocol": "AMQP", "device": "lab4-amqp", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 5671, "dps_s": 2.889, "connect_s": 0.867, "link_s": 0.105, "sent": 1, "accepted": 1}
+[WIRE] {"up_bytes": 4010, "down_bytes": 5905, "up_frames": 19, "down_frames": 23, "up_payload": 2748, "down_payload": 4379, "connections": 1, "total_bytes": 9915, "total_frames": 42, "duration_s": 2.28, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2968 ms)
+[MQTT] conectado a iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net:8883  conexion+CONNACK=458 ms
+[MQTT] #1 {'temperature': 19.4, 'humidity': 62.7, 'illuminance': 515.2} ack=207.4 ms status=puback
+[RESUMEN] {"protocol": "MQTT", "device": "lab4-mqtt", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 8883, "dps_s": 2.968, "connect_s": 0.458, "sent": 1, "accepted": 1}
+[WIRE] {"up_bytes": 3067, "down_bytes": 4748, "up_frames": 14, "down_frames": 16, "up_payload": 2159, "down_payload": 3684, "connections": 1, "total_bytes": 7815, "total_frames": 30, "duration_s": 2.78, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2887 ms)
+[HTTPS-session] #1 {'temperature': 18.8, 'humidity': 38.3, 'illuminance': 197.5} ack=573.0 ms HTTP 204
+[RESUMEN] {"protocol": "HTTPS-session", "device": "lab4-https", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 443, "dps_s": 2.887, "sent": 1, "accepted": 1}
+[WIRE] {"up_bytes": 3092, "down_bytes": 4417, "up_frames": 12, "down_frames": 12, "up_payload": 2292, "down_payload": 3617, "connections": 1, "total_bytes": 7509, "total_frames": 24, "duration_s": 1.71, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2788 ms)
+[HTTPS-new] #1 {'temperature': 31.9, 'humidity': 60.8, 'illuminance': 124.2} ack=614.0 ms HTTP 204
+[RESUMEN] {"protocol": "HTTPS-new", "device": "lab4-https", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 443, "dps_s": 2.788, "sent": 1, "accepted": 1}
+[WIRE] {"up_bytes": 3088, "down_bytes": 4417, "up_frames": 12, "down_frames": 12, "up_payload": 2288, "down_payload": 3617, "connections": 1, "total_bytes": 7505, "total_frames": 24, "duration_s": 1.7, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2950 ms)
+[AMQP] conectado a iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net:5671  conexion+SASL=911 ms  enlace=114 ms
+[AMQP] #1 {'temperature': 16.1, 'humidity': 63.8, 'illuminance': 223.1} ack=204.9 ms status=accepted
+[AMQP] #2 {'temperature': 17.3, 'humidity': 55.3, 'illuminance': 888.2} ack=244.5 ms status=accepted
+[AMQP] #3 {'temperature': 27.0, 'humidity': 64.1, 'illuminance': 134.8} ack=212.4 ms status=accepted
+[AMQP] #4 {'temperature': 24.5, 'humidity': 38.2, 'illuminance': 536.8} ack=242.6 ms status=accepted
+[AMQP] #5 {'temperature': 31.5, 'humidity': 37.1, 'illuminance': 282.0} ack=213.4 ms status=accepted
+[AMQP] #6 {'temperature': 25.0, 'humidity': 56.7, 'illuminance': 217.8} ack=209.7 ms status=accepted
+[AMQP] #7 {'temperature': 30.2, 'humidity': 51.8, 'illuminance': 252.9} ack=213.4 ms status=accepted
+[AMQP] #8 {'temperature': 24.9, 'humidity': 41.9, 'illuminance': 656.7} ack=210.8 ms status=accepted
+[AMQP] #9 {'temperature': 17.3, 'humidity': 40.8, 'illuminance': 132.2} ack=212.7 ms status=accepted
+[AMQP] #10 {'temperature': 22.8, 'humidity': 45.1, 'illuminance': 550.2} ack=268.1 ms status=accepted
+[AMQP] #11 {'temperature': 23.3, 'humidity': 57.4, 'illuminance': 173.6} ack=223.5 ms status=accepted
+[AMQP] #12 {'temperature': 25.9, 'humidity': 67.5, 'illuminance': 280.6} ack=302.1 ms status=accepted
+[AMQP] #13 {'temperature': 25.6, 'humidity': 36.1, 'illuminance': 104.7} ack=369.6 ms status=accepted
+[AMQP] #14 {'temperature': 31.7, 'humidity': 42.5, 'illuminance': 207.1} ack=217.1 ms status=accepted
+[AMQP] #15 {'temperature': 18.7, 'humidity': 38.7, 'illuminance': 481.8} ack=312.3 ms status=accepted
+[AMQP] #16 {'temperature': 29.0, 'humidity': 63.2, 'illuminance': 817.1} ack=216.3 ms status=accepted
+[AMQP] #17 {'temperature': 22.3, 'humidity': 45.6, 'illuminance': 160.9} ack=223.1 ms status=accepted
+[AMQP] #18 {'temperature': 16.3, 'humidity': 51.7, 'illuminance': 639.6} ack=225.3 ms status=accepted
+[AMQP] #19 {'temperature': 19.4, 'humidity': 35.6, 'illuminance': 212.3} ack=206.8 ms status=accepted
+[AMQP] #20 {'temperature': 29.5, 'humidity': 42.9, 'illuminance': 500.9} ack=209.7 ms status=accepted
+[AMQP] #21 {'temperature': 24.8, 'humidity': 65.2, 'illuminance': 843.3} ack=212.1 ms status=accepted
+[AMQP] #22 {'temperature': 29.6, 'humidity': 54.5, 'illuminance': 679.8} ack=263.2 ms status=accepted
+[AMQP] #23 {'temperature': 24.2, 'humidity': 67.7, 'illuminance': 576.2} ack=211.2 ms status=accepted
+[AMQP] #24 {'temperature': 20.8, 'humidity': 63.9, 'illuminance': 762.0} ack=285.9 ms status=accepted
+[AMQP] #25 {'temperature': 17.5, 'humidity': 45.1, 'illuminance': 776.0} ack=209.9 ms status=accepted
+[AMQP] #26 {'temperature': 25.5, 'humidity': 50.4, 'illuminance': 575.8} ack=198.7 ms status=accepted
+[AMQP] #27 {'temperature': 31.1, 'humidity': 60.0, 'illuminance': 437.6} ack=220.0 ms status=accepted
+[AMQP] #28 {'temperature': 23.7, 'humidity': 68.0, 'illuminance': 844.9} ack=206.7 ms status=accepted
+[AMQP] #29 {'temperature': 28.2, 'humidity': 66.8, 'illuminance': 171.9} ack=212.8 ms status=accepted
+[AMQP] #30 {'temperature': 27.2, 'humidity': 56.8, 'illuminance': 567.2} ack=208.6 ms status=accepted
+[RESUMEN] {"protocol": "AMQP", "device": "lab4-amqp", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 5671, "dps_s": 2.95, "connect_s": 0.911, "link_s": 0.114, "sent": 30, "accepted": 30}
+[WIRE] {"up_bytes": 12263, "down_bytes": 11394, "up_frames": 77, "down_frames": 82, "up_payload": 7173, "down_payload": 5974, "connections": 1, "total_bytes": 23657, "total_frames": 159, "duration_s": 38.24, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2875 ms)
+[MQTT] conectado a iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net:8883  conexion+CONNACK=528 ms
+[MQTT] #1 {'temperature': 30.3, 'humidity': 63.1, 'illuminance': 542.4} ack=200.7 ms status=puback
+[MQTT] #2 {'temperature': 25.3, 'humidity': 65.4, 'illuminance': 645.3} ack=197.4 ms status=puback
+[MQTT] #3 {'temperature': 26.1, 'humidity': 60.0, 'illuminance': 434.4} ack=198.2 ms status=puback
+[MQTT] #4 {'temperature': 19.1, 'humidity': 57.3, 'illuminance': 263.1} ack=208.5 ms status=puback
+[MQTT] #5 {'temperature': 19.3, 'humidity': 54.8, 'illuminance': 654.6} ack=227.2 ms status=puback
+[MQTT] #6 {'temperature': 23.5, 'humidity': 61.2, 'illuminance': 760.8} ack=216.5 ms status=puback
+[MQTT] #7 {'temperature': 27.3, 'humidity': 49.5, 'illuminance': 566.5} ack=195.2 ms status=puback
+[MQTT] #8 {'temperature': 30.7, 'humidity': 68.1, 'illuminance': 755.8} ack=400.3 ms status=puback
+[MQTT] #9 {'temperature': 29.3, 'humidity': 68.8, 'illuminance': 609.6} ack=225.3 ms status=puback
+[MQTT] #10 {'temperature': 16.7, 'humidity': 52.3, 'illuminance': 468.8} ack=202.9 ms status=puback
+[MQTT] #11 {'temperature': 26.3, 'humidity': 42.6, 'illuminance': 166.4} ack=193.3 ms status=puback
+[MQTT] #12 {'temperature': 25.2, 'humidity': 67.9, 'illuminance': 398.1} ack=224.2 ms status=puback
+[MQTT] #13 {'temperature': 30.2, 'humidity': 67.4, 'illuminance': 825.1} ack=198.3 ms status=puback
+[MQTT] #14 {'temperature': 16.3, 'humidity': 35.4, 'illuminance': 702.0} ack=195.1 ms status=puback
+[MQTT] #15 {'temperature': 27.0, 'humidity': 44.7, 'illuminance': 130.3} ack=189.9 ms status=puback
+[MQTT] #16 {'temperature': 19.5, 'humidity': 43.5, 'illuminance': 525.3} ack=226.3 ms status=puback
+[MQTT] #17 {'temperature': 24.2, 'humidity': 65.0, 'illuminance': 554.6} ack=199.4 ms status=puback
+[MQTT] #18 {'temperature': 18.9, 'humidity': 56.5, 'illuminance': 789.5} ack=216.6 ms status=puback
+[MQTT] #19 {'temperature': 23.5, 'humidity': 62.5, 'illuminance': 411.5} ack=227.8 ms status=puback
+[MQTT] #20 {'temperature': 31.1, 'humidity': 38.6, 'illuminance': 724.0} ack=197.6 ms status=puback
+[MQTT] #21 {'temperature': 29.5, 'humidity': 66.2, 'illuminance': 231.5} ack=204.5 ms status=puback
+[MQTT] #22 {'temperature': 20.8, 'humidity': 35.8, 'illuminance': 895.2} ack=194.6 ms status=puback
+[MQTT] #23 {'temperature': 19.5, 'humidity': 63.2, 'illuminance': 375.6} ack=193.0 ms status=puback
+[MQTT] #24 {'temperature': 17.2, 'humidity': 57.4, 'illuminance': 802.0} ack=197.6 ms status=puback
+[MQTT] #25 {'temperature': 19.0, 'humidity': 63.6, 'illuminance': 393.0} ack=211.6 ms status=puback
+[MQTT] #26 {'temperature': 29.0, 'humidity': 53.2, 'illuminance': 157.4} ack=194.7 ms status=puback
+[MQTT] #27 {'temperature': 25.5, 'humidity': 40.2, 'illuminance': 569.5} ack=196.6 ms status=puback
+[MQTT] #28 {'temperature': 26.3, 'humidity': 67.6, 'illuminance': 183.2} ack=241.5 ms status=puback
+[MQTT] #29 {'temperature': 20.9, 'humidity': 68.4, 'illuminance': 555.1} ack=198.4 ms status=puback
+[MQTT] #30 {'temperature': 18.7, 'humidity': 37.8, 'illuminance': 262.8} ack=191.5 ms status=puback
+[RESUMEN] {"protocol": "MQTT", "device": "lab4-mqtt", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 8883, "dps_s": 2.875, "connect_s": 0.528, "sent": 30, "accepted": 30}
+[WIRE] {"up_bytes": 10520, "down_bytes": 9401, "up_frames": 72, "down_frames": 72, "up_payload": 5784, "down_payload": 4641, "connections": 1, "total_bytes": 19921, "total_frames": 144, "duration_s": 38.12, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2839 ms)
+[HTTPS-session] #1 {'temperature': 22.5, 'humidity': 47.8, 'illuminance': 434.3} ack=556.9 ms HTTP 204
+[HTTPS-session] #2 {'temperature': 18.8, 'humidity': 65.9, 'illuminance': 572.1} ack=220.0 ms HTTP 204
+[HTTPS-session] #3 {'temperature': 27.3, 'humidity': 43.6, 'illuminance': 479.2} ack=239.4 ms HTTP 204
+[HTTPS-session] #4 {'temperature': 29.3, 'humidity': 36.8, 'illuminance': 715.7} ack=198.2 ms HTTP 204
+[HTTPS-session] #5 {'temperature': 18.9, 'humidity': 64.0, 'illuminance': 739.8} ack=206.8 ms HTTP 204
+[HTTPS-session] #6 {'temperature': 21.2, 'humidity': 48.9, 'illuminance': 239.9} ack=200.5 ms HTTP 204
+[HTTPS-session] #7 {'temperature': 26.6, 'humidity': 60.2, 'illuminance': 238.1} ack=245.3 ms HTTP 204
+[HTTPS-session] #8 {'temperature': 29.3, 'humidity': 37.2, 'illuminance': 565.2} ack=226.5 ms HTTP 204
+[HTTPS-session] #9 {'temperature': 29.8, 'humidity': 38.9, 'illuminance': 826.6} ack=206.0 ms HTTP 204
+[HTTPS-session] #10 {'temperature': 20.8, 'humidity': 43.9, 'illuminance': 856.4} ack=214.1 ms HTTP 204
+[HTTPS-session] #11 {'temperature': 28.1, 'humidity': 40.4, 'illuminance': 144.5} ack=190.0 ms HTTP 204
+[HTTPS-session] #12 {'temperature': 28.3, 'humidity': 57.8, 'illuminance': 145.2} ack=201.5 ms HTTP 204
+[HTTPS-session] #13 {'temperature': 19.9, 'humidity': 61.2, 'illuminance': 836.0} ack=196.4 ms HTTP 204
+[HTTPS-session] #14 {'temperature': 30.2, 'humidity': 64.4, 'illuminance': 690.2} ack=316.2 ms HTTP 204
+[HTTPS-session] #15 {'temperature': 21.7, 'humidity': 52.6, 'illuminance': 539.7} ack=208.3 ms HTTP 204
+[HTTPS-session] #16 {'temperature': 31.2, 'humidity': 68.0, 'illuminance': 676.1} ack=214.3 ms HTTP 204
+[HTTPS-session] #17 {'temperature': 22.8, 'humidity': 69.7, 'illuminance': 383.5} ack=219.0 ms HTTP 204
+[HTTPS-session] #18 {'temperature': 17.0, 'humidity': 64.1, 'illuminance': 736.3} ack=217.4 ms HTTP 204
+[HTTPS-session] #19 {'temperature': 30.3, 'humidity': 65.6, 'illuminance': 791.0} ack=194.4 ms HTTP 204
+[HTTPS-session] #20 {'temperature': 19.4, 'humidity': 60.3, 'illuminance': 112.9} ack=195.8 ms HTTP 204
+[HTTPS-session] #21 {'temperature': 22.7, 'humidity': 43.8, 'illuminance': 435.8} ack=198.8 ms HTTP 204
+[HTTPS-session] #22 {'temperature': 29.9, 'humidity': 49.1, 'illuminance': 311.0} ack=215.6 ms HTTP 204
+[HTTPS-session] #23 {'temperature': 24.5, 'humidity': 55.8, 'illuminance': 622.3} ack=209.5 ms HTTP 204
+[HTTPS-session] #24 {'temperature': 17.6, 'humidity': 51.5, 'illuminance': 576.5} ack=206.1 ms HTTP 204
+[HTTPS-session] #25 {'temperature': 19.7, 'humidity': 44.8, 'illuminance': 131.6} ack=219.8 ms HTTP 204
+[HTTPS-session] #26 {'temperature': 27.7, 'humidity': 62.5, 'illuminance': 571.4} ack=218.0 ms HTTP 204
+[HTTPS-session] #27 {'temperature': 16.5, 'humidity': 64.0, 'illuminance': 305.2} ack=199.9 ms HTTP 204
+[HTTPS-session] #28 {'temperature': 30.1, 'humidity': 63.5, 'illuminance': 619.3} ack=223.7 ms HTTP 204
+[HTTPS-session] #29 {'temperature': 16.2, 'humidity': 56.6, 'illuminance': 233.4} ack=195.5 ms HTTP 204
+[HTTPS-session] #30 {'temperature': 18.1, 'humidity': 60.4, 'illuminance': 267.8} ack=199.2 ms HTTP 204
+[RESUMEN] {"protocol": "HTTPS-session", "device": "lab4-https", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 443, "dps_s": 2.839, "sent": 30, "accepted": 30}
+[WIRE] {"up_bytes": 26375, "down_bytes": 12130, "up_frames": 99, "down_frames": 88, "up_payload": 19833, "down_payload": 6314, "connections": 1, "total_bytes": 38505, "total_frames": 187, "duration_s": 37.14, "hub_ips": ["20.44.8.231"]}
+[DPS] hub asignado: iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net (2845 ms)
+[HTTPS-new] #1 {'temperature': 19.6, 'humidity': 69.2, 'illuminance': 599.2} ack=588.9 ms HTTP 204
+[HTTPS-new] #2 {'temperature': 22.3, 'humidity': 40.6, 'illuminance': 501.1} ack=641.8 ms HTTP 204
+[HTTPS-new] #3 {'temperature': 30.2, 'humidity': 63.3, 'illuminance': 168.6} ack=619.9 ms HTTP 204
+[HTTPS-new] #4 {'temperature': 23.7, 'humidity': 59.0, 'illuminance': 837.0} ack=818.1 ms HTTP 204
+[HTTPS-new] #5 {'temperature': 22.1, 'humidity': 55.4, 'illuminance': 443.2} ack=568.8 ms HTTP 204
+[HTTPS-new] #6 {'temperature': 17.4, 'humidity': 40.2, 'illuminance': 122.9} ack=569.4 ms HTTP 204
+[HTTPS-new] #7 {'temperature': 25.2, 'humidity': 46.8, 'illuminance': 548.7} ack=614.7 ms HTTP 204
+[HTTPS-new] #8 {'temperature': 22.1, 'humidity': 46.2, 'illuminance': 855.8} ack=559.2 ms HTTP 204
+[HTTPS-new] #9 {'temperature': 30.3, 'humidity': 45.4, 'illuminance': 851.5} ack=675.3 ms HTTP 204
+[HTTPS-new] #10 {'temperature': 26.7, 'humidity': 46.2, 'illuminance': 347.8} ack=681.1 ms HTTP 204
+[HTTPS-new] #11 {'temperature': 20.9, 'humidity': 54.6, 'illuminance': 881.8} ack=577.2 ms HTTP 204
+[HTTPS-new] #12 {'temperature': 22.6, 'humidity': 61.1, 'illuminance': 331.9} ack=654.8 ms HTTP 204
+[HTTPS-new] #13 {'temperature': 20.8, 'humidity': 37.9, 'illuminance': 241.5} ack=577.8 ms HTTP 204
+[HTTPS-new] #14 {'temperature': 31.4, 'humidity': 37.4, 'illuminance': 123.8} ack=533.2 ms HTTP 204
+[HTTPS-new] #15 {'temperature': 27.4, 'humidity': 56.0, 'illuminance': 559.2} ack=652.6 ms HTTP 204
+[HTTPS-new] #16 {'temperature': 23.1, 'humidity': 49.4, 'illuminance': 454.9} ack=545.4 ms HTTP 204
+[HTTPS-new] #17 {'temperature': 31.4, 'humidity': 42.0, 'illuminance': 375.3} ack=734.5 ms HTTP 204
+[HTTPS-new] #18 {'temperature': 18.1, 'humidity': 49.0, 'illuminance': 232.1} ack=574.2 ms HTTP 204
+[HTTPS-new] #19 {'temperature': 17.6, 'humidity': 49.7, 'illuminance': 648.9} ack=568.7 ms HTTP 204
+[HTTPS-new] #20 {'temperature': 19.0, 'humidity': 56.2, 'illuminance': 222.1} ack=619.2 ms HTTP 204
+[HTTPS-new] #21 {'temperature': 31.0, 'humidity': 38.5, 'illuminance': 813.0} ack=587.8 ms HTTP 204
+[HTTPS-new] #22 {'temperature': 31.4, 'humidity': 60.8, 'illuminance': 327.1} ack=644.5 ms HTTP 204
+[HTTPS-new] #23 {'temperature': 17.7, 'humidity': 50.9, 'illuminance': 678.7} ack=679.1 ms HTTP 204
+[HTTPS-new] #24 {'temperature': 20.6, 'humidity': 68.4, 'illuminance': 306.3} ack=632.2 ms HTTP 204
+[HTTPS-new] #25 {'temperature': 21.5, 'humidity': 68.8, 'illuminance': 873.7} ack=674.8 ms HTTP 204
+[HTTPS-new] #26 {'temperature': 25.5, 'humidity': 61.9, 'illuminance': 548.1} ack=551.8 ms HTTP 204
+[HTTPS-new] #27 {'temperature': 25.4, 'humidity': 60.3, 'illuminance': 349.4} ack=516.2 ms HTTP 204
+[HTTPS-new] #28 {'temperature': 27.1, 'humidity': 45.1, 'illuminance': 207.0} ack=600.9 ms HTTP 204
+[HTTPS-new] #29 {'temperature': 17.2, 'humidity': 53.6, 'illuminance': 376.3} ack=897.4 ms HTTP 204
+[HTTPS-new] #30 {'temperature': 17.5, 'humidity': 45.9, 'illuminance': 355.5} ack=773.9 ms HTTP 204
+[RESUMEN] {"protocol": "HTTPS-new", "device": "lab4-https", "hub": "iotc-631aa800-6992-4b08-a899-bfa301046377.azure-devices.net", "port": 443, "dps_s": 2.845, "sent": 30, "accepted": 30}
+[WIRE] {"up_bytes": 93186, "down_bytes": 138840, "up_frames": 367, "down_frames": 353, "up_payload": 68640, "down_payload": 115302, "connections": 30, "total_bytes": 232026, "total_frames": 720, "duration_s": 49.3, "hub_ips": ["20.44.8.231"]}

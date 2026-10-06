@@ -1,0 +1,24 @@
+[notice] To update, run: pip install --upgrade pip
+Name: azure-iot-device
+Version: 2.14.0
+-- ocurrencias de amqp (insensible a mayusculas) en el SDK:
+0
+-- transportes/protocolos:
+__init__.py
+__pycache__
+config.py
+pipeline_events_base.py
+pipeline_events_mqtt.py
+pipeline_exceptions.py
+pipeline_nucleus.py
+pipeline_ops_base.py
+pipeline_ops_http.py
+pipeline_ops_mqtt.py
+pipeline_stages_base.py
+pipeline_stages_http.py
+pipeline_stages_mqtt.py
+pipeline_thread.py
+/usr/local/lib/python3.12/site-packages/azure/iot/device/iothub/abstract_clients.py:39:        "websockets",
+/usr/local/lib/python3.12/site-packages/azure/iot/device/iothub/abstract_clients.py:61:        "websockets",
+/usr/local/lib/python3.12/site-packages/azure/iot/device/iothub/abstract_clients.py:268:        :param bool websockets: Configuration Option. Default is False. Set to true if using MQTT
+/usr/local/lib/python3.12/site-packages/azure/iot/device/iothub/abstract_clients.py:269:            over websockets.

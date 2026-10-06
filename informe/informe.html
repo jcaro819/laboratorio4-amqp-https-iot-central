@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe — Laboratorio 4: AMQP + HTTPS vs MQTT hacia Azure IoT Central</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 8.9pt; line-height: 1.32; color: #1a1a1a; margin: 0; }
+  h1 { font-size: 14pt; margin: 0 0 3px; border-bottom: 2px solid #333; padding-bottom: 3px; }
+  h2 { font-size: 10.2pt; margin: 8px 0 3px; border-bottom: 1px solid #999; padding-bottom: 1px; }
+  p { margin: 3px 0; }
+  .meta { background: #f3f3f3; padding: 4px 8px; font-size: 8.2pt; margin-bottom: 4px; }
+  .meta p { margin: 1px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 4px 0; font-size: 7.7pt; line-height: 1.25; }
+  th, td { border: 1px solid #bbb; padding: 2px 4px; text-align: left; vertical-align: top; }
+  th { background: #e9e9e9; }
+  td.k { background: #f6f6f6; font-weight: bold; white-space: nowrap; }
+  code, .m { font-family: Consolas, 'Courier New', monospace; font-size: 0.88em; background: #f0f0f0; padding: 0 2px; }
+  ul { margin: 2px 0 2px 16px; padding: 0; }
+  li { margin: 1px 0; }
+  .note { background: #fff8e1; border-left: 3px solid #f0ad4e; padding: 3px 7px; margin: 4px 0; font-size: 8.2pt; }
+  .small { font-size: 7.6pt; color: #444; }
+</style>
+</head>
+<body>
+
+<h1>Laboratorio 4 — AMQP + tercer protocolo (HTTPS) frente a MQTT hacia Azure IoT Central</h1>
+<div class="meta">
+<p><strong>Curso:</strong> IoT + Cloud + Sistemas Distribuidos — UNAB &nbsp;|&nbsp; <strong>Autores:</strong> Juan Felipe Caro Niño, Santiago Cabeza Méndez &nbsp;|&nbsp; <strong>Fecha:</strong> 6 de octubre de 2026</p>
+<p><strong>App IoT Central:</strong> UNAB-Ambiental — Monitoreo de Espacios Académicos (<span class="m">laboratorio1caro.azureiotcentral.com</span>), plantilla «Nodo Ambiental de Aula (ESP32)»; 3 dispositivos nuevos: <span class="m">lab4-amqp</span>, <span class="m">lab4-https</span>, <span class="m">lab4-mqtt</span> (los dispositivos del Lab 3 no se tocaron).</p>
+<p><strong>Repositorio:</strong> <a href="https://github.com/felipecaronino12-cmyk/laboratorio4-amqp-https-iot-central">github.com/felipecaronino12-cmyk/laboratorio4-amqp-https-iot-central</a> (scripts, README sin secretos, <span class="m">/evidencias</span>, <span class="m">/mediciones</span> con CSV y capturas .pcap)</p>
+</div>
+
+<h2>1. Implementación y entorno</h2>
+<p><strong>Variables (las mismas del Lab 3, en los tres protocolos):</strong> <span class="m">temperature</span>, <span class="m">humidity</span>, <span class="m">illuminance</span> — JSON de ~56 B, valores aleatorios en rangos realistas. Todos aprovisionan por DPS (HTTPS + SAS, ~2,9 s en las 4 corridas, igual para todos y por eso excluido de la comparación) y reciben el mismo hub asignado.</p>
+<ul>
+<li><strong>AMQP 1.0 (<span class="m">amqp_proton.py</span>):</strong> el SDK <span class="m">azure-iot-device</span> de Python (v2.14.0) no habla AMQP — verificado: 0 referencias a «amqp» en su código; solo MQTT (y MQTT/WebSockets) y HTTP para DPS/blobs. Se usó un cliente AMQP 1.0 explícito con <em>python-qpid-proton</em>: TLS 1.2 al <span class="m">hub:5671</span>, SASL PLAIN con usuario <span class="m">&lt;id&gt;@sas.&lt;hub&gt;</span> y el token SAS del dispositivo como contraseña, enlace emisor a <span class="m">/devices/&lt;id&gt;/messages/events</span>; el cuerpo se envía como sección <em>Data</em> con <span class="m">content_type=application/json</span>. Cada mensaje se confirma con una disposición <em>accepted</em>.</li>
+<li><strong>MQTT (línea base, <span class="m">mqtt_baseline.py</span>):</strong> paho-mqtt 3.1.1 sobre TLS 8883, QoS 1 (confirmación = PUBACK), mismo patrón del Lab 3 pero medido en el mismo entorno que los otros dos.</li>
+<li><strong>Tercer protocolo — HTTPS (<span class="m">https_client.py</span>):</strong> <span class="m">POST https://&lt;hub&gt;/devices/&lt;id&gt;/messages/events</span> con el SAS en <span class="m">Authorization</span> (204 = aceptado), en dos modos: <em>keep-alive</em> (una sesión TCP+TLS reutilizada) y <em>1 conexión por mensaje</em>. <strong>Justificación:</strong> IoT Hub no ofrece CoAP; MQTT sobre WebSockets sigue siendo el mismo paradigma que MQTT y no aporta una comparación nueva. HTTPS es nativo en IoT Hub, es el único de los tres sin sesión persistente (petición/respuesta), usa el puerto 443 que casi ninguna red bloquea y lo soporta cualquier microcontrolador con TLS; permite medir el costo de «no tener conexión».</li>
+</ul>
+<div class="note"><strong>Entorno (importante):</strong> la VM <span class="m">laboratorio3caro</span> fue eliminada el 2026-10-02 desde una cuenta institucional (Activity Log) y la suscripción «Azure for Students» quedó <em>Disabled</em> por crédito agotado, por lo que este laboratorio <strong>no corrió en la VM</strong>: los clientes se ejecutaron en un contenedor Docker Linux (<span class="m">python:3.12-slim</span> + <span class="m">tcpdump</span>) en el PC del estudiante, red residencial en Colombia. Pese a ello, IoT Central siguió aceptando telemetría de dispositivos (no se pudieron crear recursos nuevos de Azure, solo usar la app existente). El Lab 3 y sus datos quedaron intactos.</div>
+
+<h2>2. Evidencia de funcionamiento</h2>
+<p>Cada protocolo envió <strong>30/30 mensajes confirmados</strong> (accepted / PUBACK / HTTP 204). Se cruzaron programáticamente los payloads enviados contra <em>Datos sin procesar</em> de IoT Central: <strong>AMQP 30/30 y MQTT 30/30 idénticos</strong>; HTTPS 49/49 de las filas visibles (la vista solo lista los últimos ~49 eventos; se enviaron 60). Las tres variables aparecen mapeadas a la plantilla (columnas Humedad relativa, Iluminancia, Temperatura). Detalle en <span class="m">evidencias/iot-central-verificacion.md</span>. Bytes medidos en la interfaz del contenedor con <span class="m">tcpdump</span> (incluye cabeceras Ethernet/IP/TCP, TLS y ACKs; costo marginal = (30 mensajes − 1 mensaje)/29).</p>
+
+<h2>3. Comparación MQTT · AMQP · HTTPS</h2>
+<table>
+<tr><th style="width:14%">Criterio</th><th style="width:21%">MQTT 3.1.1 (8883)</th><th style="width:23%">AMQP 1.0 (5671)</th><th>HTTPS (443)</th></tr>
+<tr><td class="k">Overhead por mensaje (medido)</td><td><strong>417 B</strong> en cable (7,5× el payload), 3,9 tramas</td><td><strong>474 B</strong> (8,5×), 4,0 tramas</td><td>keep-alive: <strong>1 069 B</strong> (19×; el SAS y las cabeceras HTTP viajan en cada POST). 1 conexión/msj: <strong>7 742 B</strong> (138×), 24 tramas</td></tr>
+<tr><td class="k">Costo de conexión (medido, 1 mensaje, sin DPS)</td><td>7 815 B; conexión+CONNACK 0,46–0,53 s</td><td>9 915 B (+27 %: SASL + open/begin/attach); conexión+SASL 0,87–0,91 s, enlace 0,1 s</td><td>7 509 B (casi todo TLS); 1.er POST con sesión nueva 557 ms</td></tr>
+<tr><td class="k">Latencia de confirmación (medida, 30 msj, sin el 1.º)</td><td>media 212,5 ms · mediana 198 · p95 242</td><td>media 233 ms · mediana 213 · p95 312</td><td>keep-alive: 214 · 208 · 245 ms. 1 conexión/msj: <strong>633</strong> · 619 · <strong>818</strong> ms (≈3× por el handshake TCP+TLS)</td></tr>
+<tr><td class="k">Confiabilidad</td><td>QoS 0/1 (IoT Hub no soporta QoS 2); PUBACK por mensaje; sesión TCP persistente. Medido: 30/30.</td><td>La más rica: disposiciones accepted/rejected/released/modified, modos de liquidación y control de flujo por créditos; varios enlaces por conexión. Medido: 30/30.</td><td>Un 204/4xx/5xx por petición; sin orden ni sesión: el reintento y la idempotencia son de la aplicación. Medido: 30/30 (60 con ambos modos).</td></tr>
+<tr><td class="k">Microcontrolador / Wokwi <span class="small">(documentado, no medido en este lab)</span></td><td>El mejor soporte: PubSubClient + WiFiClientSecure en ESP32; huella pequeña. En el Parcial 1 el DPS desde Wokwi falló (<span class="m">putCode=-1</span>, red/TLS del simulador): limitación de Wokwi, no del protocolo.</td><td>Sin biblioteca ligera y mantenida para Arduino/ESP32 e IoT Hub; el Azure C SDK sí lo soporta, pero es pesado y de portar. No probado en Wokwi.</td><td>HTTPClient + WiFiClientSecure nativos y simples, pero cada petición sin keep-alive repite el handshake TLS (costo de CPU/energía en MCU; no medido).</td></tr>
+<tr><td class="k">Depuración (medida: clave incorrecta y token vencido)</td><td>CONNACK «Not authorized» en ~0,43 s; no distingue causa. Wireshark ve MQTT tras descifrar TLS.</td><td><strong>Opaca:</strong> el hub cierra el socket durante SASL y el cliente ve «SSL … unexpected eof» (framing-error); sin código ni mensaje. La más difícil de depurar.</td><td><strong>La mejor:</strong> HTTP 401 con <span class="m">errorCode 401002</span>, mensaje («invalid signature…») y <span class="m">trackingId</span>; se prueba con <span class="m">curl</span>. El token vencido solo da «Unauthorized access».</td></tr>
+<tr><td class="k">Firewalls / proxies <span class="small">(documentado)</span></td><td>8883 saliente; variante MQTT/WebSockets por 443.</td><td>5671 saliente; variante AMQP/WebSockets por 443.</td><td>Solo 443 y proxies HTTP(S) estándar: el que más redes atraviesa.</td></tr>
+<tr><td class="k">Caso de uso ideal</td><td>Telemetría frecuente de dispositivos restringidos, batería/ancho de banda limitados, comandos nube→dispositivo.</td><td>Integración entre servicios (Event Hubs, Service Bus, endpoint compatible con Event Hubs de IoT Hub), pasarelas que multiplexan muchos dispositivos, garantías fuertes de entrega.</td><td>Dispositivos que reportan de forma esporádica o desde redes muy restringidas, y pruebas rápidas con <span class="m">curl</span>; mal candidato para alta frecuencia sin keep-alive.</td></tr>
+</table>
+<p class="small"><strong>Lectura de los números:</strong> la latencia de ~190–200 ms es casi un RTT hasta el hub, por eso MQTT, AMQP y HTTPS keep-alive no se distinguen en latencia (diferencias dentro del ruido de una sola corrida); la diferencia real está en el overhead por mensaje, en el costo de (re)conectar y en la depurabilidad. <strong>Límites:</strong> una corrida de 30 mensajes por protocolo, una sola red residencial, sin variantes WebSocket ni pruebas en hardware/Wokwi; los cuatro valores «documentados» no deben leerse como medidos.</p>
+
+<h2>4. Recomendaciones para la plataforma</h2>
+<ul>
+<li><strong>Protocolo dispositivo → IoT Central: MQTT.</strong> Menor overhead medido (417 B/msj), una conexión persistente, mejor ack medio, mejor soporte en microcontroladores y es el que ya usan los demás nodos (Lab 3 y Parcial 1). Usar MQTT/WebSockets por 443 donde 8883 esté bloqueado.</li>
+<li><strong>Entre servicios de Azure: AMQP 1.0.</strong> Es el protocolo nativo de Event Hubs/Service Bus y del endpoint de eventos de IoT Hub, con confirmación y control de flujo por enlace; su mayor costo de conexión (+27 %) se amortiza porque en servicios la conexión dura horas y se multiplexan enlaces. No es una buena opción en el dispositivo: handshake más pesado, sin soporte ligero en ESP32 y errores opacos.</li>
+<li><strong>Los dos protocolos que se conservan: MQTT (dispositivos) y AMQP (backend y pasarelas).</strong> Se descarta HTTPS como protocolo de dispositivo: sin keep-alive cuesta ≈138× el payload y ≈3× la latencia, y con keep-alive aún cuesta 2,6× el overhead de MQTT (el token SAS va en cada petición); su ventaja de atravesar firewalls la cubren las variantes WebSocket de MQTT/AMQP en 443. HTTPS se mantiene solo como herramienta de diagnóstico (<span class="m">curl</span>) por sus mensajes de error claros.</li>
+<li><strong>Operación:</strong> registrar siempre el <span class="m">trackingId</span> y la causa del fallo de autenticación; en AMQP/MQTT, instrumentar el cliente para exponer el código de la desconexión, dado que el hub no lo detalla. Renovar el SAS antes de que venza (3 600 s en este lab).</li>
+</ul>
+
+</body>
+</html>
